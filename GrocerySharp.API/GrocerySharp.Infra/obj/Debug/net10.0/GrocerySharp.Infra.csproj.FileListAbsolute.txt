@@ -1,0 +1,12 @@
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\bin\Debug\net10.0\GrocerySharp.Infra.deps.json
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\bin\Debug\net10.0\GrocerySharp.Infra.dll
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\bin\Debug\net10.0\GrocerySharp.Infra.pdb
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.AssemblyInfoInputs.cache
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.AssemblyInfo.cs
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.csproj.CoreCompileInputs.cache
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.sourcelink.json
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.dll
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\refint\GrocerySharp.Infra.dll
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.pdb
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\ref\GrocerySharp.Infra.dll

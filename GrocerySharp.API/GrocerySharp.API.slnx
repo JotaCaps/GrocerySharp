@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="GorcerySharp.Application/GorcerySharp.Application.csproj" />
+  <Project Path="GrocerySharp.API/GrocerySharp.API.csproj" />
+  <Project Path="GrocerySharp.Domain/GrocerySharp.Domain.csproj" />
+  <Project Path="GrocerySharp.Infra/GrocerySharp.Infra.csproj" />
+</Solution>
