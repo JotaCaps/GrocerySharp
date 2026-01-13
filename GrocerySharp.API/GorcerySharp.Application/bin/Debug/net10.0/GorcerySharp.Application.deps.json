@@ -7,14 +7,30 @@
   "targets": {
     ".NETCoreApp,Version=v10.0": {
       "GorcerySharp.Application/1.0.0": {
+        "dependencies": {
+          "GrocerySharp.Domain": "1.0.0"
+        },
         "runtime": {
           "GorcerySharp.Application.dll": {}
+        }
+      },
+      "GrocerySharp.Domain/1.0.0": {
+        "runtime": {
+          "GrocerySharp.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }
   },
   "libraries": {
     "GorcerySharp.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GrocerySharp.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

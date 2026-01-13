@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "GrocerySharp.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/GrocerySharp.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GrocerySharp.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "GrocerySharp.Domain/1.0.0": {
+      "type": "project",
+      "path": "../GrocerySharp.Domain/GrocerySharp.Domain.csproj",
+      "msbuildProject": "../GrocerySharp.Domain/GrocerySharp.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "GrocerySharp.Domain >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\joaos\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\GrocerySharp.Domain.csproj": {
+              "projectPath": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\GrocerySharp.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

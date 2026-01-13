@@ -10,3 +10,7 @@ C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\obj\Debug\net1
 C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\obj\Debug\net10.0\refint\GorcerySharp.Application.dll
 C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\obj\Debug\net10.0\GorcerySharp.Application.pdb
 C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\obj\Debug\net10.0\ref\GorcerySharp.Application.dll
+C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\bin\Debug\net10.0\GrocerySharp.Domain.dll
+C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\bin\Debug\net10.0\GrocerySharp.Domain.pdb
+C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\obj\Debug\net10.0\GorcerySharp.Application.csproj.AssemblyReference.cache
+C:\Estudos\GrocerySharp\GrocerySharp.API\GorcerySharp.Application\obj\Debug\net10.0\GorceryS.A1B9898F.Up2Date

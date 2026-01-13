@@ -8,6 +8,16 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GorcerySharp.Application\GorcerySharp.Application.csproj" />
+    <ProjectReference Include="..\GrocerySharp.Domain\GrocerySharp.Domain.csproj" />
+    <ProjectReference Include="..\GrocerySharp.Infra\GrocerySharp.Infra.csproj" />
   </ItemGroup>
 
 </Project>

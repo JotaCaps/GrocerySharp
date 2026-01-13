@@ -10,3 +10,7 @@ C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\Gr
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\refint\GrocerySharp.Infra.dll
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.pdb
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\ref\GrocerySharp.Infra.dll
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\bin\Debug\net10.0\GrocerySharp.Domain.dll
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\bin\Debug\net10.0\GrocerySharp.Domain.pdb
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GrocerySharp.Infra.csproj.AssemblyReference.cache
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.Infra\obj\Debug\net10.0\GroceryS.DA42C465.Up2Date
