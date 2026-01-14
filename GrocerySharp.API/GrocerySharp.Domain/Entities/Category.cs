@@ -6,7 +6,20 @@ namespace GrocerySharp.Domain.Entities
 {
     public class Category : BaseEntity
     {
+        public Category() { }
+
+        public Category(string name)
+        {
+            Name = name;
+            Products = new List<Product>();
+        }
+
         public string Name { get; set; }
         public List<Product> Products { get; set; }
+
+        public void Update(string name)
+        {
+            Name = name;
+        }
     }
 }

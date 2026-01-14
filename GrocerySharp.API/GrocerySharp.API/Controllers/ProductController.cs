@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GorcerySharp.Application.DTOs;
+using GrocerySharp.Domain.Entities;
+using GrocerySharp.Infra.Persistence;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GrocerySharp.API.Controllers
 {
@@ -6,33 +10,66 @@ namespace GrocerySharp.API.Controllers
     [Route("api/products")]
     public class ProductController : ControllerBase
     {
-        [HttpPost]
-        public async Task<IActionResult> Post()
+
+        private readonly GrocerySharpDbContext _context;
+
+        public ProductController(GrocerySharpDbContext context)
         {
-            return Created();
+            _context = context;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(ProductInputModel model)
+        {
+            var product = ProductInputModel.ToEntity(model);
+
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok();
+            var products = await _context.Products.ToListAsync();
+
+            return Ok(products);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetById()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
+            if (product == null)
+                return NotFound();
+
+            return Ok(product);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update()
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(ProductInputModel model, int id)
         {
+            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
+            if (product == null)
+                return NotFound();
+
+            product.Update(model.Name, model.Description, model.Price, model.Img);
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete()
+        [HttpDelete("{id}")] 
+        public async Task<IActionResult> Delete(int id)
         {
+            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
+            if (product == null)
+                return NotFound();
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
     }

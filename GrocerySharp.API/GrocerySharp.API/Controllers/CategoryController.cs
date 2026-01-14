@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GorcerySharp.Application.DTOs;
+using GrocerySharp.Domain.Entities;
+using GrocerySharp.Infra.Persistence;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GrocerySharp.API.Controllers
 {
@@ -6,33 +10,65 @@ namespace GrocerySharp.API.Controllers
     [Route("api/categories")]
     public class CategoryController : ControllerBase
     {
-        [HttpPost]
-        public async Task<IActionResult> Post()
+        private readonly GrocerySharpDbContext _context;
+
+        public CategoryController(GrocerySharpDbContext context)
         {
-            return Created();
+            _context = context;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(CategoryInputModel model)
+        {
+            var category = CategoryInputModel.ToEntity(model);
+
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction(nameof(GetById), new { id = category.Id }, category);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Ok();
+            var categories = await _context.Categories.ToListAsync();
+
+            return Ok(categories);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetById()
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
         {
-            return Ok();
+            var category = await _context.Categories.SingleOrDefaultAsync(x => x.Id == id);
+            if (category == null)
+                return NotFound();
+
+            return Ok(category);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update()
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(CategoryInputModel model, int id)
         {
+            var category = await _context.Categories.SingleOrDefaultAsync(x => x.Id == id);
+            if (category == null)
+                return NotFound();
+
+            category.Update(model.Name);
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> Delete()
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
+            var category = await _context.Categories.SingleOrDefaultAsync(x => x.Id == id);
+            if (category == null)
+                return NotFound();
+
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+
             return NoContent();
         }
     }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrocerySharp.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a76dd842d3eda46fff7253f09fb1f78e918ea5b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af65e712b26e6c6eec4902c9e675035a45d4bd32")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrocerySharp.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrocerySharp.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
