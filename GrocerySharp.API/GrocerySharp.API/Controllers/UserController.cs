@@ -22,6 +22,15 @@ namespace GrocerySharp.API.Controllers
         {
             var user = UserInputModel.ToEntity(model);
 
+            var role = await _context.Roles.SingleOrDefaultAsync(x => x.Id == model.RoleId);
+
+            if (role != null)
+                user.Roles.Add(role);
+
+            else
+                return BadRequest("Invalid RoleId");
+            
+
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 

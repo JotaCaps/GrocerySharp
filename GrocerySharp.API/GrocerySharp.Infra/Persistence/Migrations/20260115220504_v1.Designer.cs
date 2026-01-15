@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GrocerySharp.Infra.Persistence.Migrations
 {
     [DbContext(typeof(GrocerySharpDbContext))]
-    [Migration("20260112172439_v1")]
+    [Migration("20260115220504_v1")]
     partial class v1
     {
         /// <inheritdoc />
@@ -99,7 +99,7 @@ namespace GrocerySharp.Infra.Persistence.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderItems");
+                    b.ToTable("OrderItens");
                 });
 
             modelBuilder.Entity("GrocerySharp.Domain.Entities.Product", b =>
@@ -130,6 +130,40 @@ namespace GrocerySharp.Infra.Persistence.Migrations
                     b.ToTable("Products");
                 });
 
+            modelBuilder.Entity("GrocerySharp.Domain.Entities.Role", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Admin"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Employee"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Name = "Customer"
+                        });
+                });
+
             modelBuilder.Entity("GrocerySharp.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -157,6 +191,21 @@ namespace GrocerySharp.Infra.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.Property<int>("RolesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RolesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("UserRoles", (string)null);
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>
@@ -202,6 +251,21 @@ namespace GrocerySharp.Infra.Persistence.Migrations
                     b.Navigation("Order");
 
                     b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.HasOne("GrocerySharp.Domain.Entities.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("GrocerySharp.Domain.Entities.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("GrocerySharp.Domain.Entities.Order", b =>
