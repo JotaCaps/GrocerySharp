@@ -20,9 +20,9 @@ namespace GrocerySharp.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(UserInputModel model)
         {
-            var user = UserInputModel.ToEntity(model);
+            var user = model.ToEntity();
 
-            var role = await _context.Roles.SingleOrDefaultAsync(x => x.Id == model.RoleId);
+            var role = await _context.Roles.FindAsync(model.RoleId);
 
             if (role != null)
                 user.Roles.Add(role);
@@ -34,13 +34,18 @@ namespace GrocerySharp.API.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = user.Id }, user);
+            return CreatedAtAction(nameof(GetById), new { id = user.Id }, model);
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var users = await _context.Users.ToListAsync();
+            var model = await _context.Users
+               .Include(r => r.Roles)
+               .ToListAsync();
+
+            var users = model.Select(GetAllUsersViewModel.FromEntity)
+                .ToList();
 
             return Ok(users);
         }
@@ -48,11 +53,16 @@ namespace GrocerySharp.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.Id == id);
+            var user = await _context.Users
+                .Include(u => u.Roles)
+                .SingleOrDefaultAsync(x => x.Id == id);
             if (user == null)
                 return NotFound();
+
+            var model = GetUserByIdViewModel.FromEntity(user);
             
-            return Ok(user);
+
+            return Ok(model);
         }
 
         [HttpPut("{id}")]

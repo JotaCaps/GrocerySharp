@@ -14,7 +14,7 @@ namespace GorcerySharp.Application.DTOs
 
         public int RoleId { get; set; }
 
-        public static User ToEntity(UserInputModel model)
-            => new User(model.Name, model.Email, model.Phone, model.Password);
+        public User ToEntity()
+            => new User(Name, Email, Phone, Password);
     }
 }
