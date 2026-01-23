@@ -68,10 +68,19 @@ namespace GrocerySharp.Infra.Persistence.Migrations
                     b.Property<int>("OrderStatus")
                         .HasColumnType("int");
 
+                    b.Property<int>("PaymentId")
+                        .HasColumnType("int");
+
+                    b.Property<decimal>("TotalAmount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PaymentId")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -97,6 +106,28 @@ namespace GrocerySharp.Infra.Persistence.Migrations
                     b.HasIndex("ProductId");
 
                     b.ToTable("OrderItens");
+                });
+
+            modelBuilder.Entity("GrocerySharp.Domain.Entities.Payment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("GrocerySharp.Domain.Entities.Product", b =>
@@ -222,11 +253,19 @@ namespace GrocerySharp.Infra.Persistence.Migrations
 
             modelBuilder.Entity("GrocerySharp.Domain.Entities.Order", b =>
                 {
+                    b.HasOne("GrocerySharp.Domain.Entities.Payment", "Payment")
+                        .WithOne()
+                        .HasForeignKey("GrocerySharp.Domain.Entities.Order", "PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("GrocerySharp.Domain.Entities.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Payment");
 
                     b.Navigation("User");
                 });

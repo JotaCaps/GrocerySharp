@@ -9,7 +9,7 @@ namespace GorcerySharp.Application.DTOs
     {
         public string Name { get; set; }
 
-        public static Category ToEntity(CategoryInputModel model)
-            => new(model.Name);
+        public Category ToEntity()
+            => new(Name);
     }
 }

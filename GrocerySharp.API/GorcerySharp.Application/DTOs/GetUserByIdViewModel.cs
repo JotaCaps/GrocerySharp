@@ -9,16 +9,17 @@ namespace GorcerySharp.Application.DTOs
     {
         public GetUserByIdViewModel()
         {
-            
+
         }
-        public GetUserByIdViewModel(string name, string email, string phone, string password)
+        public GetUserByIdViewModel(int id, string name, string email, string phone, string password)
         {
+            Id = id;
             Name = name;
             Email = email;
             Phone = phone;
             Password = password;
         }
-        
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
@@ -28,12 +29,12 @@ namespace GorcerySharp.Application.DTOs
         public List<string> Roles { get; set; } = new List<string>();
 
         public static GetUserByIdViewModel FromEntity(User model)
-            => new GetUserByIdViewModel 
+            => new GetUserByIdViewModel
             { 
                 Id = model.Id,
-                Name = model.Name, 
-                Email = model.Email, 
-                Phone = model.Phone, 
+                Name = model.Name,
+                Email = model.Email,
+                Phone = model.Phone,
                 Password = model.Password,
 
                 Roles = model.Roles?.Select(r => r.Name).ToList() ?? new List<string>()

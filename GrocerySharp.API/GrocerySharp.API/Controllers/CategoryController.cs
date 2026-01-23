@@ -20,12 +20,12 @@ namespace GrocerySharp.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(CategoryInputModel model)
         {
-            var category = CategoryInputModel.ToEntity(model);
+            var category = model.ToEntity();
 
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = category.Id }, category);
+            return CreatedAtAction(nameof(GetById), new { id = category.Id }, CategoryViewModel.FromEntity(category));
         }
 
         [HttpGet]
@@ -33,7 +33,10 @@ namespace GrocerySharp.API.Controllers
         {
             var categories = await _context.Categories.ToListAsync();
 
-            return Ok(categories);
+            var model = categories.Select(CategoryViewModel.FromEntity)
+                .ToList();
+
+            return Ok(model);
         }
 
         [HttpGet("{id}")]
@@ -43,7 +46,9 @@ namespace GrocerySharp.API.Controllers
             if (category == null)
                 return NotFound();
 
-            return Ok(category);
+            var model = CategoryViewModel.FromEntity(category);
+
+            return Ok(model);
         }
 
         [HttpPut("{id}")]

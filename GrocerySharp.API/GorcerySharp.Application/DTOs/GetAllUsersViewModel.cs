@@ -11,8 +11,9 @@ namespace GorcerySharp.Application.DTOs
         {
 
         }
-        public GetAllUsersViewModel(string name, string email, string phone, string password)
+        public GetAllUsersViewModel(int id, string name, string email, string phone, string password)
         {
+            Id = id;
             Name = name;
             Email = email;
             Phone = phone;

@@ -10,4 +10,8 @@
     <ProjectReference Include="..\GrocerySharp.Domain\GrocerySharp.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstractions\" />
+  </ItemGroup>
+
 </Project>

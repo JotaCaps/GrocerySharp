@@ -9,19 +9,27 @@ namespace GrocerySharp.Domain.Entities
     {
         public Order() { }
 
-        public Order(int userId, OrderStatus orderStatus)
+        public Order(int userId, OrderStatus orderStatus, decimal totalAmount)
         {
             UserId = userId;
             OrderDate = DateTime.UtcNow;
             OrderStatus = orderStatus;
+            TotalAmount = totalAmount;
+
 
             OrderItens = new List<OrderItem>();
+
+            Payment = new Payment(totalAmount);
         }
 
         public User User { get; set; }
         public int UserId { get; set; }
         public DateTime OrderDate { get; set; }
         public OrderStatus OrderStatus { get; set; }
+
+        public int PaymentId { get; set; }
+        public Payment Payment { get; set; }
+        public decimal TotalAmount { get; set; }
 
         public List<OrderItem> OrderItens { get; set; }
 

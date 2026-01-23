@@ -158,6 +158,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "GrocerySharp.API.Controllers.OrderController",
+    "Method": "ConfirmPayment",
+    "RelativePath": "api/orders/{id}/confirm-payment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GrocerySharp.API.Controllers.ProductController",
     "Method": "Post",
     "RelativePath": "api/products",

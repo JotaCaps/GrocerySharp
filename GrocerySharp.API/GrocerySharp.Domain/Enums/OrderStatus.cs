@@ -6,7 +6,7 @@ namespace GrocerySharp.Domain.Enums
 {
     public enum OrderStatus
     {
-        PaymentPanding = 1,
+        PaymentPending = 1,
         PaymentAproved = 2,
         Sipped = 3,
         Delivered = 4,

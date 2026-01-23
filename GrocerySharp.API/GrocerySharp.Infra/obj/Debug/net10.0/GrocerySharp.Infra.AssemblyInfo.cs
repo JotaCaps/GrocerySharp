@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrocerySharp.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+56d191e6611b093330eda112c12af3a92c26fcd6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3af09ebbbfdee9a9b4503ac723a355353ff9ee01")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrocerySharp.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrocerySharp.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

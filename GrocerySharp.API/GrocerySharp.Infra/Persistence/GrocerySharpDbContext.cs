@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Text;
 
 namespace GrocerySharp.Infra.Persistence
@@ -17,6 +18,7 @@ namespace GrocerySharp.Infra.Persistence
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<Payment> Payments { get; set; }
 
         public DbSet<OrderItem> OrderItens { get; set; }
 
@@ -86,6 +88,10 @@ namespace GrocerySharp.Infra.Persistence
                 e.HasMany(o => o.OrderItens);
             });
 
+            builder.Entity<Order>()
+                .HasOne(o => o.Payment)      
+                .WithOne()                   
+                .HasForeignKey<Order>(o => o.PaymentId);
         }
     }
 }

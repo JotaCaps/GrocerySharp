@@ -21,12 +21,12 @@ namespace GrocerySharp.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(ProductInputModel model)
         {
-            var product = ProductInputModel.ToEntity(model);
+            var product = model.ToEntity();
 
             _context.Products.Add(product);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+            return CreatedAtAction(nameof(GetById), new { id = product.Id }, ProductViewModel.FromEntity(product));
         }
 
         [HttpGet]
@@ -34,15 +34,20 @@ namespace GrocerySharp.API.Controllers
         {
             var products = await _context.Products.ToListAsync();
 
-            return Ok(products);
+            var model = products.Select(ProductViewModel.FromEntity)
+                .ToList();
+
+            return Ok(model);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
-            if (product == null)
+            var model = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
+            if (model == null)
                 return NotFound();
+
+            var product = ProductViewModel.FromEntity(model);
 
             return Ok(product);
         }

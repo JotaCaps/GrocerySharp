@@ -34,7 +34,7 @@ namespace GrocerySharp.API.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetById), new { id = user.Id }, model);
+            return CreatedAtAction(nameof(GetById), new { id = user.Id }, GetUserByIdViewModel.FromEntity(user));
         }
 
         [HttpGet]

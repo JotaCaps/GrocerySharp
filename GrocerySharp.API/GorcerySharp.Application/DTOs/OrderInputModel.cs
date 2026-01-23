@@ -9,10 +9,12 @@ namespace GorcerySharp.Application.DTOs
     public class OrderInputModel
     {
         public int UserId { get; set; }
+        public List<OrderItemInputModel> Items { get; set; }
+
         public OrderStatus OrderStatus { get; set; }
 
-        public static Order ToEntity(OrderInputModel model)
-            => new Order(model.UserId, model.OrderStatus);
+        public Order ToEntity(decimal totalAmount)
+            => new Order(UserId, OrderStatus.PaymentPending, totalAmount);
 
     }
 }

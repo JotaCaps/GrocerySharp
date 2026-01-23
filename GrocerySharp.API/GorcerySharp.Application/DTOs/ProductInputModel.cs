@@ -12,7 +12,7 @@ namespace GorcerySharp.Application.DTOs
         public decimal Price { get; set; }
         public string Img { get; set; } = string.Empty;
 
-        public static Product ToEntity(ProductInputModel model)
-            => new Product(model.Name, model.Description, model.Price, model.Img);
+        public Product ToEntity()
+            => new Product(Name, Description, Price, Img);
     }
 }
