@@ -1,5 +1,4 @@
 ﻿using GorcerySharp.Application.DTOs;
-using GrocerySharp.Domain.Entities;
 using GrocerySharp.Infra.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
