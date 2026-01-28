@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GrocerySharp.Infra.Repositories
 {
-    public class OrderRepository : IProductRepository
+    public class OrderRepository : IOrderRepository /*Tava IProductRepository?*/
     {
         public Task<int> AddAsync()
         {
@@ -29,6 +29,11 @@ namespace GrocerySharp.Infra.Repositories
         }
 
         public Task UpdateAsync(Product product)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task UpdatePaymentStatusAsync(int Id)
         {
             throw new NotImplementedException();
         }

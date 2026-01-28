@@ -18,10 +18,8 @@ namespace GrocerySharp.Infra.Repositories
         {
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-
             return user.Id;
         }
-
         public async Task DeleteAsync(int id)
         {
             var user = await _context.Users.SingleOrDefaultAsync(x => x.Id == id);
