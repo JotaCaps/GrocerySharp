@@ -1,7 +1,6 @@
 ﻿using GorcerySharp.Application.DTOs;
-using GrocerySharp.Infra.Persistence;
+using GrocerySharp.Domain.Abstractions.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GrocerySharp.API.Controllers
 {
@@ -9,11 +8,11 @@ namespace GrocerySharp.API.Controllers
     [Route("api/categories")]
     public class CategoryController : ControllerBase
     {
-        private readonly GrocerySharpDbContext _context;
+        private readonly ICategoryRepository _categoryRepository;
 
-        public CategoryController(GrocerySharpDbContext context)
+        public CategoryController(ICategoryRepository categoryRepository)
         {
-            _context = context;
+            _categoryRepository = categoryRepository;
         }
 
         [HttpPost]
@@ -21,19 +20,17 @@ namespace GrocerySharp.API.Controllers
         {
             var category = model.ToEntity();
 
-            _context.Categories.Add(category);
-            await _context.SaveChangesAsync();
+            var id = await _categoryRepository.AddAsync(category);
 
-            return CreatedAtAction(nameof(GetById), new { id = category.Id }, CategoryViewModel.FromEntity(category));
+            return CreatedAtAction(nameof(GetById), new { id }, CategoryViewModel.FromEntity(category));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var categories = await _context.Categories.ToListAsync();
+            var categories = await _categoryRepository.GetAllAsync();
 
-            var model = categories.Select(CategoryViewModel.FromEntity)
-                .ToList();
+            var model = categories.Select(CategoryViewModel.FromEntity).ToList();
 
             return Ok(model);
         }
@@ -41,7 +38,7 @@ namespace GrocerySharp.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var category = await _context.Categories.SingleOrDefaultAsync(x => x.Id == id);
+            var category = await _categoryRepository.GetByIdAsync(id);
             if (category == null)
                 return NotFound();
 
@@ -53,26 +50,27 @@ namespace GrocerySharp.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(CategoryInputModel model, int id)
         {
-            var category = await _context.Categories.SingleOrDefaultAsync(x => x.Id == id);
+            var category = await _categoryRepository.GetByIdAsync(id);
             if (category == null)
                 return NotFound();
 
             category.Update(model.Name);
-            await _context.SaveChangesAsync();
+
+            await _categoryRepository.UpdateAsync(category);
 
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
-        {
-            var category = await _context.Categories.SingleOrDefaultAsync(x => x.Id == id);
-            if (category == null)
+        {   
+            var category = await _categoryRepository.GetByIdAsync(id);
+            if(category == null)
+            {
                 return NotFound();
+            }
 
-            _context.Categories.Remove(category);
-            await _context.SaveChangesAsync();
-
+            await _categoryRepository.DeleteAsync(id);
             return NoContent();
         }
     }
