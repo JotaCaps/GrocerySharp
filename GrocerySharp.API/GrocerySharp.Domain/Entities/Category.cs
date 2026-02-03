@@ -14,8 +14,8 @@ namespace GrocerySharp.Domain.Entities
             Products = new List<Product>();
         }
 
-        public string Name { get; set; }
-        public List<Product> Products { get; set; }
+        public string Name { get; private set; }
+        public List<Product> Products { get; private set; }
 
         public void Update(string name)
         {

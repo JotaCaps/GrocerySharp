@@ -14,6 +14,6 @@ namespace GrocerySharp.Domain.Entities
             Users = new List<User>();
         }
         public string Name { get; set; }
-        public List<User> Users { get; set; }
+        public List<User> Users { get; private set; }
     }
 }

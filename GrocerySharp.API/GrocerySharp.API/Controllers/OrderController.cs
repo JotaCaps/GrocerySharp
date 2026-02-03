@@ -1,9 +1,8 @@
 ﻿using GorcerySharp.Application.DTOs;
+using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
 using GrocerySharp.Domain.Enums;
-using GrocerySharp.Infra.Persistence;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GrocerySharp.API.Controllers
 {
@@ -11,11 +10,13 @@ namespace GrocerySharp.API.Controllers
     [Route("api/orders")]
     public class OrderController : ControllerBase
     {
-        private readonly GrocerySharpDbContext _context;
+        private readonly IOrderRepository _orderRepository;
+        private readonly IProductRepository _productRepository;
 
-        public OrderController(GrocerySharpDbContext context)
+        public OrderController(IOrderRepository orderRepository, IProductRepository productRepository)
         {
-            _context = context;
+            _orderRepository = orderRepository;
+            _productRepository = productRepository;
         }
 
         [HttpPost]
@@ -25,13 +26,12 @@ namespace GrocerySharp.API.Controllers
             var orderItems = new List<OrderItem>();
 
             foreach (var item in model.Items)
-                {
-                    var product = await _context.Products
-                        .SingleOrDefaultAsync(p => p.Id == item.ProductId);
-                    if (product == null)
-                       return BadRequest($"Product with ID {item.ProductId} not found.");
+            {
+                var product = await _productRepository.GetByIdAsync(item.ProductId);
+                if (product == null)
+                    return BadRequest($"Product with ID {item.ProductId} not found.");
 
-                    totalOrderValue += product.Price * item.Quantity;
+                totalOrderValue += product.Price * item.Quantity;
 
                 orderItems.Add(new OrderItem
                 {
@@ -39,24 +39,22 @@ namespace GrocerySharp.API.Controllers
                     Quantity = item.Quantity,
                     Price = product.Price
                 });
-            };
+            }
 
             var order = new Order(model.UserId, OrderStatus.PaymentPending, totalOrderValue);
             order.OrderItens = orderItems;
 
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
+            var id = await _orderRepository.AddAsync(order);
 
-            return CreatedAtAction(nameof(GetById), new { id = order.Id }, OrderViewModel.FromEntity(order));
+            return CreatedAtAction(nameof(GetById), new { id }, OrderViewModel.FromEntity(order));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var oders = await _context.Orders.ToListAsync();
+            var orders = await _orderRepository.GetAllAsync();
 
-            var model = oders.Select(OrderViewModel.FromEntity)
-                .ToList();
+            var model = orders.Select(OrderViewModel.FromEntity).ToList();
 
             return Ok(model);
         }
@@ -64,24 +62,24 @@ namespace GrocerySharp.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var order = await _context.Orders.SingleOrDefaultAsync(x => x.Id == id);
+            var order = await _orderRepository.GetByIdAsync(id);
             if (order == null)
                 return NotFound();
 
             var model = OrderViewModel.FromEntity(order);
-
             return Ok(model);
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(OrderInputModel model, int id)
         {
-            var order = await _context.Orders.SingleOrDefaultAsync(x => x.Id == id);
-            if(order == null)
+            var order = await _orderRepository.GetByIdAsync(id);
+            if (order == null)
                 return NotFound();
 
             order.Update(model.UserId, model.OrderStatus);
-            await _context.SaveChangesAsync();
+
+            await _orderRepository.UpdateAsync(order);
 
             return NoContent();
         }
@@ -89,20 +87,18 @@ namespace GrocerySharp.API.Controllers
         [HttpPut("{id}/confirm-payment")]
         public async Task<IActionResult> ConfirmPayment(int id)
         {
-            var order = await _context.Orders
-                .Include(o => o.Payment)
-                .SingleOrDefaultAsync(o => o.Id == id);
+            var order = await _orderRepository.GetByIdWithPaymentAsync(id);
 
-            if(order == null)
-                return NotFound($"Pedido com ID {order.Id} não encontrado");
+            if (order == null)
+                return NotFound($"Pedido com ID {id} não encontrado");
 
-            if(order.Payment.Status != PaymentStatus.Pending)
+            if (order.Payment.Status != PaymentStatus.Pending)
                 return BadRequest($"O pagamento já está com status: {order.Payment.Status}");
 
             order.Payment.Confirm();
             order.OrderStatus = OrderStatus.PaymentAproved;
 
-            await _context.SaveChangesAsync();
+            await _orderRepository.SaveChangesAsync();
 
             return Ok(new PaymentStatusViewModel
             {
@@ -112,17 +108,14 @@ namespace GrocerySharp.API.Controllers
             });
         }
 
-
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var order = await _context.Orders.SingleOrDefaultAsync(x => x.Id == id);
+            var order = await _orderRepository.GetByIdAsync(id);
             if(order == null)
                 return NotFound();
 
-            _context.Orders.Remove(order);
-            await _context.SaveChangesAsync();
-
+            await _orderRepository.DeleteAsync(id);
             return NoContent();
         }
     }

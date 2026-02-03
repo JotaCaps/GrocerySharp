@@ -1,36 +1,52 @@
 ﻿using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
-using System;
+using GrocerySharp.Infra.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace GrocerySharp.Infra.Repositories
 {
     public class CategoryRepository : ICategoryRepository
     {
-        public Task<int> AddAsync()
+        private readonly GrocerySharpDbContext _context;
+
+        public CategoryRepository(GrocerySharpDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task DeleteAsync(int id)
+        public async Task<int> AddAsync(Category category)
         {
-            throw new NotImplementedException();
+            _context.Categories.Add(category);
+            await _context.SaveChangesAsync();
+            return category.Id;
         }
 
-        public Task GetAllAsync()
+        public async Task<List<Category>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Categories.ToListAsync();
         }
 
-        public Task<int> GetByIdAsync(int id)
+        public async Task<Category> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Categories.SingleOrDefaultAsync(c => c.Id == id);
         }
 
-        public Task UpdateAsync(Category category)
+        public async Task UpdateAsync(Category category)
         {
-            throw new NotImplementedException();
+            _context.Categories.Update(category);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var category = await _context.Categories.SingleOrDefaultAsync(c => c.Id == id);
+            if (category == null)
+                return;
+
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -22,14 +22,14 @@ namespace GrocerySharp.Domain.Entities
             Payment = new Payment(totalAmount);
         }
 
-        public User User { get; set; }
-        public int UserId { get; set; }
-        public DateTime OrderDate { get; set; }
+        public User User { get; private set; }
+        public int UserId { get; private set; }
+        public DateTime OrderDate { get; private set; }
         public OrderStatus OrderStatus { get; set; }
 
-        public int PaymentId { get; set; }
-        public Payment Payment { get; set; }
-        public decimal TotalAmount { get; set; }
+        public int PaymentId { get; private set; }
+        public Payment Payment { get; private set; }
+        public decimal TotalAmount { get; private set; }
 
         public List<OrderItem> OrderItens { get; set; }
 

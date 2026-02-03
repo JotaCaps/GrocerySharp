@@ -1,4 +1,5 @@
 ﻿using GorcerySharp.Application.DTOs;
+using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
 using GrocerySharp.Infra.Persistence;
 using Microsoft.AspNetCore.Mvc;
@@ -11,11 +12,11 @@ namespace GrocerySharp.API.Controllers
     public class ProductController : ControllerBase
     {
 
-        private readonly GrocerySharpDbContext _context;
+        private readonly IProductRepository _productRepository;
 
-        public ProductController(GrocerySharpDbContext context)
+        public ProductController(IProductRepository productRepository)
         {
-            _context = context;
+            _productRepository = productRepository;
         }
 
         [HttpPost]
@@ -23,16 +24,15 @@ namespace GrocerySharp.API.Controllers
         {
             var product = model.ToEntity();
 
-            _context.Products.Add(product);
-            await _context.SaveChangesAsync();
+            var id = await _productRepository.AddAsync(product);
 
-            return CreatedAtAction(nameof(GetById), new { id = product.Id }, ProductViewModel.FromEntity(product));
+            return CreatedAtAction(nameof(GetById), new { id }, ProductViewModel.FromEntity(product));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var products = await _context.Products.ToListAsync();
+            var products = await _productRepository.GetAllAsync();
 
             var model = products.Select(ProductViewModel.FromEntity)
                 .ToList();
@@ -43,7 +43,7 @@ namespace GrocerySharp.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var model = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
+            var model = await _productRepository.GetByIdAsync(id);
             if (model == null)
                 return NotFound();
 
@@ -55,12 +55,12 @@ namespace GrocerySharp.API.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(ProductInputModel model, int id)
         {
-            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
+            var product = await _productRepository.GetByIdAsync(id);
             if (product == null)
                 return NotFound();
 
             product.Update(model.Name, model.Description, model.Price, model.Img);
-            await _context.SaveChangesAsync();
+            await _productRepository.UpdateAsync(product);
 
             return NoContent();
         }
@@ -68,14 +68,12 @@ namespace GrocerySharp.API.Controllers
         [HttpDelete("{id}")] 
         public async Task<IActionResult> Delete(int id)
         {
-            var product = await _context.Products.SingleOrDefaultAsync(x => x.Id == id);
-            if (product == null)
+            var product = await _productRepository.GetByIdAsync(id);
+            if(product == null)
                 return NotFound();
 
-            _context.Products.Remove(product);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+            await _productRepository.DeleteAsync(id);
+            return NoContent(); 
         }
     }
 }

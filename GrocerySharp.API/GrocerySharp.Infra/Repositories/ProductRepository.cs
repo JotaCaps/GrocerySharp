@@ -1,5 +1,7 @@
 ﻿using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
+using GrocerySharp.Infra.Persistence;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,29 +10,50 @@ namespace GrocerySharp.Infra.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        public Task<int> AddAsync()
+        private readonly GrocerySharpDbContext _context;
+
+        public ProductRepository(GrocerySharpDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task<int> AddAsync(Product product)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return product.Id;
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products.SingleOrDefaultAsync(p => p.Id == id);
+            if(product == null)
+            {
+                return;
+            }
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
         }
 
-        public Task GetAllAsync()
+        public async Task<List<Product>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var model = await _context.Products
+                .ToListAsync();
+            return model;
         }
 
-        public Task<int> GetByIdAsync(int id)
+        public async Task<Product> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var product = await _context.Products
+                .SingleOrDefaultAsync(p => p.Id == id);
+            
+            return product;
         }
 
-        public Task UpdateAsync(Product product)
+        public async Task UpdateAsync(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
         }
     }
 }

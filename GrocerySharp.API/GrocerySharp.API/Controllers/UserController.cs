@@ -1,8 +1,7 @@
 ﻿using GorcerySharp.Application.DTOs;
+using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
-using GrocerySharp.Infra.Persistence;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GrocerySharp.API.Controllers
 {
@@ -10,11 +9,13 @@ namespace GrocerySharp.API.Controllers
     [Route("api/users")]
     public class UserController : ControllerBase
     {
-        private readonly GrocerySharpDbContext _context;
+        private readonly IUserRepository _userRepository;
+        private readonly IRoleRepository _roleRepository;
 
-        public UserController(GrocerySharpDbContext context)
+        public UserController(IUserRepository userRepository, IRoleRepository roleRepository)
         {
-            _context = context;
+            _userRepository = userRepository;
+            _roleRepository = roleRepository;
         }
 
         [HttpPost]
@@ -22,58 +23,46 @@ namespace GrocerySharp.API.Controllers
         {
             var user = model.ToEntity();
 
-            var role = await _context.Roles.FindAsync(model.RoleId);
-
-            if (role != null)
-                user.Roles.Add(role);
-
-            else
+            var role = await _roleRepository.GetRoleId(model.RoleId);
+            if (role == null)
                 return BadRequest("Invalid RoleId");
-            
 
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
+            user.Roles.Add(role);
 
-            return CreatedAtAction(nameof(GetById), new { id = user.Id }, GetUserByIdViewModel.FromEntity(user));
+            var id = await _userRepository.AddAsync(user);
+
+            return CreatedAtAction(nameof(GetById), new { id }, GetUserByIdViewModel.FromEntity(user));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var model = await _context.Users
-               .Include(r => r.Roles)
-               .ToListAsync();
+            var users = await _userRepository.GetAllAsync();
+            var result = users.Select(GetAllUsersViewModel.FromEntity).ToList();
 
-            var users = model.Select(GetAllUsersViewModel.FromEntity)
-                .ToList();
-
-            return Ok(users);
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var user = await _context.Users
-                .Include(u => u.Roles)
-                .SingleOrDefaultAsync(x => x.Id == id);
+            var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
                 return NotFound();
 
-            var model = GetUserByIdViewModel.FromEntity(user);
-            
-
-            return Ok(model);
+            return Ok(GetUserByIdViewModel.FromEntity(user));
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(UserInputModel model, int id)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.Id == id);
+            var user = await _userRepository.GetByIdAsync(id);
             if (user == null)
                 return NotFound();
 
             user.Update(model.Name, model.Email, model.Phone, model.Password);
-            await _context.SaveChangesAsync();
+
+            await _userRepository.UpdateAsync(user);
 
             return NoContent();
         }
@@ -81,14 +70,12 @@ namespace GrocerySharp.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var user = await _context.Users.SingleOrDefaultAsync(x => x.Id == id);
-            if(user == null)
+            var user = await _userRepository.GetByIdAsync(id);
+            if (user == null)
                 return NotFound();
-
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
+                
+            await _userRepository.DeleteAsync(id);
+            return NoContent(); 
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GorcerySharp.Application.DTOs
 {
-    public class PaymentStatusViewModel
+    public sealed record PaymentStatusViewModel
     {
         public int OrderId { get; set; }
         public string NewOrderStatus { get; set; }
