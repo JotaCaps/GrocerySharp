@@ -1,6 +1,8 @@
-﻿namespace GrocerySharp.Domain.Entities
+﻿using GrocerySharp.Domain.Abstractions.Interfaces;
+
+namespace GrocerySharp.Domain.Entities
 {
-    public class User : BaseEntity
+    public class User : BaseEntity, ISoftDelete
     {
         public User() { }
 
@@ -14,12 +16,14 @@
             Orders = new List<Order>();
             Roles = new List<Role>();
         }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string Password { get; set; }
-        public List<Order> Orders { get; set; }
-        public List<Role> Roles { get; set; }
+        public string Name { get; private set; }
+        public string Email { get; private set; }
+        public string Phone { get; private set; }
+        public string Password { get; private set; }
+        public bool IsDeleted { get; set; }
+        public DateTime? DeletedAt { get; set; }
+        public List<Order> Orders { get; private set; }
+        public List<Role> Roles { get; private set; }
 
         public void Update(string name, string email, string phone, string password)
         {

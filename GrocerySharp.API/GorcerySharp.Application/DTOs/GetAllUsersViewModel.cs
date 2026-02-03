@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GorcerySharp.Application.DTOs
 {
-    public class GetAllUsersViewModel
+    public sealed record GetAllUsersViewModel
     {
         public GetAllUsersViewModel()
         {

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GorcerySharp.Application.DTOs
 {
-    public class CategoryInputModel
+    public sealed record CategoryInputModel
     {
         public string Name { get; set; }
 

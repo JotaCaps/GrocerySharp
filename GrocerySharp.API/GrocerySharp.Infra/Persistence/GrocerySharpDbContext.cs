@@ -1,7 +1,9 @@
-﻿using GrocerySharp.Domain.Entities;
+﻿using GrocerySharp.Domain.Abstractions.Interfaces;
+using GrocerySharp.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Reflection.Emit;
 using System.Text;
 
@@ -25,6 +27,18 @@ namespace GrocerySharp.Infra.Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+
+            foreach (var entityType in builder.Model.GetEntityTypes())
+            {
+                if (typeof(ISoftDelete).IsAssignableFrom(entityType.ClrType))
+                {
+                    var parameter = Expression.Parameter(entityType.ClrType, "e");
+                    var property = Expression.Property(parameter, nameof(ISoftDelete.IsDeleted));
+                    var filter = Expression.Lambda(Expression.Equal(property, Expression.Constant(false)), parameter);
+
+                    builder.Entity(entityType.ClrType).HasQueryFilter(filter);
+                }
+            }
 
             builder.Entity<Role>().HasData(
                 new Role { Id = 1, Name = "Admin" },
@@ -92,6 +106,22 @@ namespace GrocerySharp.Infra.Persistence
                 .HasOne(o => o.Payment)      
                 .WithOne()                   
                 .HasForeignKey<Order>(o => o.PaymentId);
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            foreach (var entry in ChangeTracker.Entries<ISoftDelete>())
+            {
+                switch (entry.State)
+                {
+                    case EntityState.Deleted:
+                        entry.State = EntityState.Modified;
+                        entry.Entity.IsDeleted = true;
+                        entry.Entity.DeletedAt = DateTime.UtcNow;
+                        break;
+                }
+            }
+            return base.SaveChangesAsync(cancellationToken);
         }
     }
 }

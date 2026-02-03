@@ -1,5 +1,5 @@
 ﻿using GorcerySharp.Application.DTOs;
-        using GrocerySharp.Domain.Abstractions.Repositories;
+using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 

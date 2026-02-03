@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrocerySharp.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d76309e8198d5e05c6813d39a149bc6cbec9b624")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2392924ddfa972c4aedb273b6971d2676fbb9f40")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrocerySharp.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrocerySharp.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -6,9 +6,9 @@ namespace GrocerySharp.Domain.Entities
 {
     public class OrderItem
     {
-        public Order Order { get; set; }
-        public int OrderId { get; set; }
-        public Product Product { get; set; }
+        public Order Order { get; private set; }
+        public int OrderId { get; private set; }
+        public Product Product { get; private set; }
         public int ProductId { get; set; }
         public int Quantity { get; set; }
         public decimal Price { get; set; }

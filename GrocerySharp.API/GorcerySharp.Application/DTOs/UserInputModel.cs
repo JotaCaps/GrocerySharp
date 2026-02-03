@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GorcerySharp.Application.DTOs
 {
-    public class UserInputModel
+    public sealed record UserInputModel
     {
         public string Name { get; set; }
         public string Email { get; set; }

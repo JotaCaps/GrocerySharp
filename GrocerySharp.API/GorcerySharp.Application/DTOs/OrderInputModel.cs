@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GorcerySharp.Application.DTOs
 {
-    public class OrderInputModel
+    public sealed record OrderInputModel
     {
         public int UserId { get; set; }
         public List<OrderItemInputModel> Items { get; set; }

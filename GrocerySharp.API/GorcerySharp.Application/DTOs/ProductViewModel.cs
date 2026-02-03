@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GorcerySharp.Application.DTOs
 {
-    public class ProductViewModel
+    public sealed record ProductViewModel
     {
         public ProductViewModel() { }
 
