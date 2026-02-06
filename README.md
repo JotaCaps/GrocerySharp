@@ -1,3 +1,67 @@
+# 🛒 Grocery Sharp
+> Sistema inteligente de gerenciamento para pequenas mercearias.
+
+O **Grocery Sharp** é uma solução moderna para controle de estoque, vendas e fornecedores. O projeto foi desenvolvido com foco em performance, tipagem forte e facilidade de deploy, utilizando as versões mais recentes do ecossistema .NET.
+
+---
+
+## 🏗️ Arquitetura e Padrões de Projeto
+
+Este projeto foi construído seguindo rigorosos padrões de engenharia de software para garantir escalabilidade e manutenção simplificada.
+
+### 🏛️ Design de Software
+* **Clean Architecture (Arquitetura Limpa):** Separação clara de responsabilidades entre as camadas de API, Aplicação, Domínio e Infraestrutura. O núcleo do negócio é independente de frameworks externos.
+* **DDD (Domain-Driven Design):** Aplicação de conceitos fundamentais como Entidades e Regras de Negócio centralizadas no Domínio, garantindo um sistema rico e consistente.
+* **KISS & SOLID:** O código segue o princípio *Keep It Simple, Stupid*, evitando complexidade desnecessária, enquanto aplica os princípios SOLID para manter o desacoplamento.
+
+### 🛠️ Patterns Aplicados
+* **Repository Pattern:** Abstração da camada de dados para facilitar testes unitários e a troca de provedores de banco de dados.
+* **Soft Delete:** Implementação de exclusão lógica para preservação de integridade de dados e histórico de auditoria.
+
+---
+
+## 🚀 Stack Tecnológica
+* **Linguagem:** C# (Versões atuais)
+* **Framework:** .NET 8/9
+* **Banco de Dados:** SQL Server
+* **Containerização:** Docker & Docker Compose
+* **Documentação API:** Swagger (OpenAPI)
+* **ORM:** Entity Framework Core
+
+---
+
+## 🛠️ Como Executar o Projeto
+
+### Pré-requisitos
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) instalado e rodando.
+
+### Passo a Passo
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/grocery-sharp.git](https://github.com/seu-usuario/grocery-sharp.git)
+    cd grocery-sharp
+    ```
+2.  **Suba o ambiente via Docker:**
+    ```bash
+    docker-compose up -d
+    ```
+3.  **Acesse a Documentação Interativa:**
+    Aguarde alguns segundos para a inicialização do banco e acesse:
+    `http://localhost:5000/swagger`
+
+---
+
+## 📂 Estrutura de Pastas
+```text
+📂 src
+ ┣ 📂 GrocerySharp.API        # Controllers e Configurações de Injeção de Dep.
+ ┣ 📂 GrocerySharp.Domain     # Entidades, Interfaces e Regras de Negócio
+ ┣ 📂 GrocerySharp.Data       # Contexto do EF, Repositories e Migrations
+ ┗ 📂 GrocerySharp.Services   # Casos de Uso e Lógica de Aplicação
+```
+---
+---
+
 ## 🧠 Camada de Aplicação — Grocery Sharp
 
 A **Camada de Aplicação** no *Grocery Sharp* é responsável por **mediar a comunicação entre a API e o Domínio**, garantindo que dados externos (HTTP/JSON) nunca acessem diretamente as entidades de negócio.
