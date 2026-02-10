@@ -154,8 +154,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\OrderInputModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:09.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:09.64Z"
             },
             {
               "$type": "Document",
@@ -167,8 +166,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\OrderItemInputModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:13.193Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:13.193Z"
             },
             {
               "$type": "Document",
@@ -180,8 +178,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\OrderViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:16.487Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:16.487Z"
             },
             {
               "$type": "Document",
@@ -193,8 +190,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\PaymentStatusViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:19.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:19.734Z"
             },
             {
               "$type": "Document",
@@ -206,8 +202,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\ProductInputModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:25.309Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:25.309Z"
             },
             {
               "$type": "Document",
@@ -219,8 +214,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\ProductViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:30.164Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:30.164Z"
             },
             {
               "$type": "Document",
@@ -230,7 +224,7 @@
               "RelativeDocumentMoniker": "GorcerySharp.Application\\DTOs\\UserInputModel.cs",
               "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GorcerySharp.Application\\DTOs\\UserInputModel.cs",
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\UserInputModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-03T22:54:34.096Z",
               "EditorCaption": ""
@@ -245,8 +239,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\GetUserByIdViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:06.435Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:06.435Z"
             },
             {
               "$type": "Document",
@@ -258,8 +251,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\GetAllUsersViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:54:02.883Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:54:02.883Z"
             },
             {
               "$type": "Document",
@@ -271,8 +263,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\CategoryViewModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:53:57.73Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:53:57.73Z"
             },
             {
               "$type": "Document",
@@ -284,8 +275,7 @@
               "RelativeToolTip": "GorcerySharp.Application\\DTOs\\CategoryInputModel.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:53:47.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:53:47.144Z"
             },
             {
               "$type": "Document",
@@ -297,8 +287,7 @@
               "RelativeToolTip": "GrocerySharp.API\\Controllers\\UserController.cs",
               "ViewState": "AgIAACwAAAAAAAAAAAAswDgAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T21:46:55.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T21:46:55.55Z"
             },
             {
               "$type": "Document",
@@ -310,8 +299,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\OrderItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:48:59.45Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:48:59.45Z"
             },
             {
               "$type": "Document",
@@ -323,8 +311,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\Role.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T22:20:44.852Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T22:20:44.852Z"
             },
             {
               "$type": "Document",
@@ -336,8 +323,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\Product.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwBoAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T22:55:28.982Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-02T22:55:28.982Z"
             },
             {
               "$type": "Document",
@@ -349,8 +335,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\Payment.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:49:15.016Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:49:15.016Z"
             },
             {
               "$type": "Document",
@@ -362,8 +347,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\Order.cs",
               "ViewState": "AgIAABMAAAAAAAAAAAAcwBsAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:48:34.926Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:48:34.926Z"
             },
             {
               "$type": "Document",
@@ -375,8 +359,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\Category.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:48:18.588Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:48:18.588Z"
             },
             {
               "$type": "Document",
@@ -388,8 +371,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T22:50:32.693Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T22:50:32.693Z"
             },
             {
               "$type": "Document",
@@ -401,8 +383,7 @@
               "RelativeToolTip": "GrocerySharp.Infra\\Repositories\\CategoryRepository.cs",
               "ViewState": "AgIAABIAAAAAAAAAAAA5wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-27T22:05:48.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-27T22:05:48.212Z"
             },
             {
               "$type": "Document",
@@ -414,8 +395,7 @@
               "RelativeToolTip": "GrocerySharp.API\\Controllers\\OrderController.cs",
               "ViewState": "AgIAAFcAAAAAAAAAAAAlwGIAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-03T23:00:35.442Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T23:00:35.442Z"
             },
             {
               "$type": "Document",
@@ -427,8 +407,7 @@
               "RelativeToolTip": "GrocerySharp.Infra\\Persistence\\GrocerySharpDbContext.cs",
               "ViewState": "AgIAACAAAAAAAAAAAAAtwC0AAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-02T22:56:19.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-02T22:56:19.516Z"
             },
             {
               "$type": "Document",
@@ -452,8 +431,7 @@
               "RelativeToolTip": "GrocerySharp.Domain\\Entities\\User.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAgwBYAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-23T22:17:25.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-23T22:17:25.259Z"
             },
             {
               "$type": "Document",

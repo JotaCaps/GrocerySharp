@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+
+// Componente temporário para telas em construção
+const Placeholder = ({ title }) => (
+  <div className="p-8">
+    <h1 className="text-2xl font-bold">{title}</h1>
+    <p className="text-gray-600">Em breve, conectaremos com o Swagger...</p>
+    <a href="/" className="text-blue-500 hover:underline mt-4 block">Voltar ao Menu</a>
+  </div>
+);
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+          <Route path="/users" element={<Placeholder title="Gerenciamento de Usuários" />} />
+          <Route path="/products" element={<Placeholder title="Catálogo de Produtos" />} />
+          <Route path="/categories" element={<Placeholder title="Categorias" />} />
+          <Route path="/orders" element={<Placeholder title="Pedidos" />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
 
-export default App
+export default App;
