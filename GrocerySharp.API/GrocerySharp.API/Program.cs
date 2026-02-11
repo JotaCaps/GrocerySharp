@@ -11,6 +11,19 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<GrocerySharpDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("GrocerySharpCs")));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllDev", policy =>
+    {
+        policy
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+
+
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 
@@ -31,6 +44,8 @@ builder.Services.AddControllers()
     });
 
 var app = builder.Build();
+
+app.UseCors("AllowAllDev");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

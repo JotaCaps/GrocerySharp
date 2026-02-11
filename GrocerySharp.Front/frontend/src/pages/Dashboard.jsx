@@ -1,4 +1,5 @@
-// src/pages/Dashboard.jsx
+import { useEffect } from "react";
+import { api } from "../services/api";
 import { Users, Package, Tags, ShoppingCart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -9,15 +10,28 @@ const menuItems = [
   { title: 'Pedidos', icon: <ShoppingCart size={32} />, path: '/orders', color: 'bg-orange-500', desc: 'Gerenciar vendas' },
 ];
 
+//Apenas teste de conexao
 export default function Dashboard() {
+  useEffect(() => {
+  async function testUsers() {
+    try {
+      const res = await api.get("/api/users");
+      console.log("Users:", res.data);
+    } catch (err) {
+      console.error("Falha ao bater /api/users:", err);
+    }
+  }
+  testUsers();
+}, []);
+
   return (
     <div className="p-8 max-w-7xl mx-auto">
       <h1 className="text-3xl font-bold text-gray-800 mb-8">GrocerySharp Admin</h1>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {menuItems.map((item) => (
-          <Link 
-            to={item.path} 
+          <Link
+            to={item.path}
             key={item.title}
             className="p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-all hover:-translate-y-1 group"
           >
