@@ -10,18 +10,17 @@ const menuItems = [
   { title: 'Pedidos', icon: <ShoppingCart size={32} />, path: '/orders', color: 'bg-orange-500', desc: 'Gerenciar vendas' },
 ];
 
-//Apenas teste de conexao
 export default function Dashboard() {
   useEffect(() => {
-  async function testUsers() {
-    try {
-      const res = await api.get("/api/users");
-      console.log("Users:", res.data);
-    } catch (err) {
-      console.error("Falha ao bater /api/users:", err);
-    }
-  }
-  testUsers();
+  // Teste de conexao
+  // async function testUsers() {
+  //   try {
+  //     const res = await api.get("/api/users");
+  //   } catch (err) {
+  //     console.error("Falha ao bater /api/users:", err);
+  //   }
+  // }
+  // testUsers();
 }, []);
 
   return (
