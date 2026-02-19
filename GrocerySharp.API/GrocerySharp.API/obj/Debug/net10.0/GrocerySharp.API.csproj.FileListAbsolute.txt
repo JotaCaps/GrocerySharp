@@ -6,7 +6,6 @@ C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\Groc
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\GrocerySharp.API.runtimeconfig.json
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\GrocerySharp.API.dll
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\GrocerySharp.API.pdb
-C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\Microsoft.OpenApi.dll
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\obj\Debug\net10.0\GrocerySharp.API.csproj.AssemblyReference.cache
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\obj\Debug\net10.0\rpswa.dswa.cache.json
@@ -222,3 +221,4 @@ C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\Swas
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Estudos\GrocerySharp\GrocerySharp.API\GrocerySharp.API\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

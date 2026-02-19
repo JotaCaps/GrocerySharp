@@ -1,27 +1,34 @@
 ﻿using GorcerySharp.Application.DTOs;
 using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
+using GrocerySharp.Infra.Auth;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GrocerySharp.API.Controllers
 {
     [ApiController]
     [Route("api/users")]
+    [Authorize]
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
         private readonly IRoleRepository _roleRepository;
+        private readonly IAuthService _authService;
 
-        public UserController(IUserRepository userRepository, IRoleRepository roleRepository)
+        public UserController(IUserRepository userRepository, IRoleRepository roleRepository, IAuthService authService)
         {
             _userRepository = userRepository;
             _roleRepository = roleRepository;
+            _authService = authService;
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post(UserInputModel model)
         {
-            var user = model.ToEntity();
+            var hash = _authService.Computehash(model.Password);
+            var user = new User(model.Name, model.Email, model.Phone, hash);
 
             var role = await _roleRepository.GetRoleId(model.RoleId);
             if (role == null)
@@ -76,6 +83,26 @@ namespace GrocerySharp.API.Controllers
                 
             await _userRepository.DeleteAsync(id);
             return NoContent(); 
+        }
+
+        [HttpPut("login")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginInputModel model)
+        {
+            var hash = _authService.Computehash(model.Password);
+
+            var user = _authService.GetUser(model.Email, hash);
+
+            if (user == null)
+                return NotFound();
+
+            var roles = user.Roles.Select(r => r.Name).ToList();
+
+            var token = _authService.GenerateToken(user.Email, roles);
+
+            var viewModel = new LoginViewModel(token);
+
+            return Ok(viewModel);
         }
     }
 }

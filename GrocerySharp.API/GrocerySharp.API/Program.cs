@@ -1,6 +1,8 @@
 using GrocerySharp.Domain.Abstractions.Repositories;
+using GrocerySharp.Infra.Auth;
 using GrocerySharp.Infra.Persistence;
 using GrocerySharp.Infra.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using System.Text.Json.Serialization;
@@ -48,6 +50,11 @@ builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(); // Continuar implementação e criar método de extensão posteriomente pra agrupar a resolução de todas interfaces
+
 
 var app = builder.Build();
 
