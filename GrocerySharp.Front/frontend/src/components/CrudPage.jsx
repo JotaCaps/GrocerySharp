@@ -161,7 +161,6 @@ export default function CrudPage({
     try {
       await remove(id);
     } catch {
-k
     }
   }
 
