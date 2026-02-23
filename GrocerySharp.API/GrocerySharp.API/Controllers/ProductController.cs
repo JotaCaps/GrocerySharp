@@ -2,6 +2,7 @@
 using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
 using GrocerySharp.Infra.Persistence;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,7 @@ namespace GrocerySharp.API.Controllers
 {
     [ApiController]
     [Route("api/products")]
+    [Authorize(Roles = "Admin")]
     public class ProductController : ControllerBase
     {
 
@@ -20,6 +22,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Post(ProductInputModel model)
         {
             var product = model.ToEntity();
@@ -30,6 +33,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var products = await _productRepository.GetAllAsync();
@@ -41,6 +45,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             var model = await _productRepository.GetByIdAsync(id);

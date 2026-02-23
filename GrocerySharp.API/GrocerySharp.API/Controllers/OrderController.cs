@@ -2,12 +2,14 @@
 using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Domain.Entities;
 using GrocerySharp.Domain.Enums;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GrocerySharp.API.Controllers
 {
     [ApiController]
     [Route("api/orders")]
+    [Authorize(Roles = "Admin")]
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
@@ -71,6 +73,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpPut("{id}")]
+        
         public async Task<IActionResult> Update(OrderInputModel model, int id)
         {
             var order = await _orderRepository.GetByIdAsync(id);
@@ -85,6 +88,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpPut("{id}/confirm-payment")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> ConfirmPayment(int id)
         {
             var order = await _orderRepository.GetByIdWithPaymentAsync(id);

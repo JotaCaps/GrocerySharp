@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GorcerySharp.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2871fcb60b3f7dcbbac8d77c027fa27396e1eb3c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+145109220e1960e6defcdc708affeeb0e751074e")]
 [assembly: System.Reflection.AssemblyProductAttribute("GorcerySharp.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GorcerySharp.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

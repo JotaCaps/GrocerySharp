@@ -85,24 +85,6 @@ namespace GrocerySharp.API.Controllers
             return NoContent(); 
         }
 
-        [HttpPut("login")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginInputModel model)
-        {
-            var hash = _authService.Computehash(model.Password);
 
-            var user = _authService.GetUser(model.Email, hash);
-
-            if (user == null)
-                return NotFound();
-
-            var roles = user.Roles.Select(r => r.Name).ToList();
-
-            var token = _authService.GenerateToken(user.Email, roles);
-
-            var viewModel = new LoginViewModel(token);
-
-            return Ok(viewModel);
-        }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using GorcerySharp.Application.DTOs;
 using GrocerySharp.Domain.Abstractions.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GrocerySharp.API.Controllers
 {
     [ApiController]
     [Route("api/categories")]
+    [Authorize(Roles = "Admin")]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryRepository _categoryRepository;
@@ -26,6 +28,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
             var categories = await _categoryRepository.GetAllAsync();
@@ -36,6 +39,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<IActionResult> GetById(int id)
         {
             var category = await _categoryRepository.GetByIdAsync(id);

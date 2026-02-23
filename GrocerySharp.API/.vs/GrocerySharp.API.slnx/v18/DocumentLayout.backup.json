@@ -3,48 +3,24 @@
   "WorkspaceRootPath": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9972BF33-1A15-DE56-C48B-F87D526D3ED9}|GrocerySharp.Infra\\GrocerySharp.Infra.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.infra\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9972BF33-1A15-DE56-C48B-F87D526D3ED9}|GrocerySharp.Infra\\GrocerySharp.Infra.csproj|solutionrelative:grocerysharp.infra\\auth\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|solutionrelative:grocerysharp.api\\controllers\\categorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.domain\\abstractions\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|solutionrelative:grocerysharp.domain\\abstractions\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|solutionrelative:grocerysharp.api\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|solutionrelative:grocerysharp.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5D72A01F-3341-AF36-B73D-46956C8ECB9C}|GorcerySharp.Application\\GorcerySharp.Application.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\gorcerysharp.application\\dtos\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D72A01F-3341-AF36-B73D-46956C8ECB9C}|GorcerySharp.Application\\GorcerySharp.Application.csproj|solutionrelative:gorcerysharp.application\\dtos\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|solutionrelative:grocerysharp.api\\controllers\\productcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.domain\\abstractions\\interfaces\\isoftdelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|solutionrelative:grocerysharp.domain\\abstractions\\interfaces\\isoftdelete.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9972BF33-1A15-DE56-C48B-F87D526D3ED9}|GrocerySharp.Infra\\GrocerySharp.Infra.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.infra\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9972BF33-1A15-DE56-C48B-F87D526D3ED9}|GrocerySharp.Infra\\GrocerySharp.Infra.csproj|solutionrelative:grocerysharp.infra\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.domain\\abstractions\\repositories\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|solutionrelative:grocerysharp.domain\\abstractions\\repositories\\icategoryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9972BF33-1A15-DE56-C48B-F87D526D3ED9}|GrocerySharp.Infra\\GrocerySharp.Infra.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.infra\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9972BF33-1A15-DE56-C48B-F87D526D3ED9}|GrocerySharp.Infra\\GrocerySharp.Infra.csproj|solutionrelative:grocerysharp.infra\\repositories\\rolerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|solutionrelative:grocerysharp.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5D72A01F-3341-AF36-B73D-46956C8ECB9C}|GorcerySharp.Application\\GorcerySharp.Application.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\gorcerysharp.application\\dtos\\logininputmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5D72A01F-3341-AF36-B73D-46956C8ECB9C}|GorcerySharp.Application\\GorcerySharp.Application.csproj|solutionrelative:gorcerysharp.application\\dtos\\logininputmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8C57666-C088-5D3B-FEB1-FAB9D553EEE8}|GrocerySharp.Domain\\GrocerySharp.Domain.csproj|solutionrelative:grocerysharp.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|c:\\estudos\\grocerysharp\\grocerysharp.api\\grocerysharp.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5377E12B-F51C-AB50-F3B4-26A71996A563}|GrocerySharp.API\\GrocerySharp.API.csproj|solutionrelative:grocerysharp.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,84 +30,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CategoryController.cs",
+              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\CategoryController.cs",
+              "RelativeDocumentMoniker": "GrocerySharp.API\\Controllers\\CategoryController.cs",
+              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\CategoryController.cs",
+              "RelativeToolTip": "GrocerySharp.API\\Controllers\\CategoryController.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAgwFEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T18:22:06.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductController.cs",
+              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\ProductController.cs",
+              "RelativeDocumentMoniker": "GrocerySharp.API\\Controllers\\ProductController.cs",
+              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\ProductController.cs",
+              "RelativeToolTip": "GrocerySharp.API\\Controllers\\ProductController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAAAC8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-23T18:20:26.297Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "IAuthService.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Abstractions\\Interfaces\\IAuthService.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.Domain\\Abstractions\\Interfaces\\IAuthService.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Abstractions\\Interfaces\\IAuthService.cs*",
-              "RelativeToolTip": "GrocerySharp.Domain\\Abstractions\\Interfaces\\IAuthService.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAOAAAAAAAAAA==",
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "GrocerySharp.API\\Controllers\\OrderController.cs",
+              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "GrocerySharp.API\\Controllers\\OrderController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T20:06:29.993Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Infra\\Repositories\\UserRepository.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.Infra\\Repositories\\UserRepository.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Infra\\Repositories\\UserRepository.cs",
-              "RelativeToolTip": "GrocerySharp.Infra\\Repositories\\UserRepository.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAswAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T20:05:16.556Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ICategoryRepository.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Abstractions\\Repositories\\ICategoryRepository.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.Domain\\Abstractions\\Repositories\\ICategoryRepository.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Abstractions\\Repositories\\ICategoryRepository.cs",
-              "RelativeToolTip": "GrocerySharp.Domain\\Abstractions\\Repositories\\ICategoryRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T20:05:03.522Z",
+              "WhenOpened": "2026-02-23T18:14:55.076Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "ISoftDelete.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Abstractions\\Interfaces\\ISoftDelete.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.Domain\\Abstractions\\Interfaces\\ISoftDelete.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Abstractions\\Interfaces\\ISoftDelete.cs",
-              "RelativeToolTip": "GrocerySharp.Domain\\Abstractions\\Interfaces\\ISoftDelete.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "GrocerySharp.API\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\AuthController.cs*",
+              "RelativeToolTip": "GrocerySharp.API\\Controllers\\AuthController.cs*",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwBwAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T20:05:00.091Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RoleRepository.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Infra\\Repositories\\RoleRepository.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.Infra\\Repositories\\RoleRepository.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Infra\\Repositories\\RoleRepository.cs",
-              "RelativeToolTip": "GrocerySharp.Infra\\Repositories\\RoleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T20:04:44.144Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthService.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Infra\\Auth\\AuthService.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.Infra\\Auth\\AuthService.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Infra\\Auth\\AuthService.cs",
-              "RelativeToolTip": "GrocerySharp.Infra\\Auth\\AuthService.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwAcAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T20:02:14.763Z",
+              "WhenOpened": "2026-02-23T18:06:48.226Z",
               "EditorCaption": ""
             },
             {
@@ -140,63 +90,11 @@
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "GrocerySharp.API\\Controllers\\UserController.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\UserController.cs*",
-              "RelativeToolTip": "GrocerySharp.API\\Controllers\\UserController.cs*",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAgwBAAAAAlAAAAAAAAAA==",
+              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "GrocerySharp.API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAADwvxYAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T19:53:50.74Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Program.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.API\\Program.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.API\\Program.cs",
-              "RelativeToolTip": "GrocerySharp.API\\Program.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAmwDYAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T19:46:12.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GorcerySharp.Application\\DTOs\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "GorcerySharp.Application\\DTOs\\LoginViewModel.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GorcerySharp.Application\\DTOs\\LoginViewModel.cs",
-              "RelativeToolTip": "GorcerySharp.Application\\DTOs\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T19:43:11.018Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "LoginInputModel.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GorcerySharp.Application\\DTOs\\LoginInputModel.cs",
-              "RelativeDocumentMoniker": "GorcerySharp.Application\\DTOs\\LoginInputModel.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GorcerySharp.Application\\DTOs\\LoginInputModel.cs",
-              "RelativeToolTip": "GorcerySharp.Application\\DTOs\\LoginInputModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T19:42:47.849Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "GrocerySharp.Domain\\Entities\\User.cs",
-              "ToolTip": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GrocerySharp.Domain\\Entities\\User.cs",
-              "RelativeToolTip": "GrocerySharp.Domain\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-19T19:27:52.99Z",
+              "WhenOpened": "2026-02-23T18:06:23.497Z",
               "EditorCaption": ""
             }
           ]
