@@ -7,6 +7,7 @@ import {
   isValidPhoneBR,
   passwordHasRecommendedStrength,
 } from "../shared/validators";
+import PasswordInput from "../components/PasswordInput";
 
 export default function RegisterPage() {
   const nav = useNavigate();
@@ -135,13 +136,11 @@ export default function RegisterPage() {
 
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">Senha</label>
-              <input
-                type="password"
+              <PasswordInput
                 value={form.password}
                 onChange={(e) => setField("password", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                placeholder="••••••••"
                 autoComplete="new-password"
+                placeholder="Mín. 8 caracteres"
               />
               <div className="text-xs text-gray-400">
                 Mín. 8 caracteres (recomendado: 1 maiúscula, 1 número e 1 símbolo).
@@ -150,13 +149,11 @@ export default function RegisterPage() {
 
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-700">Confirmar senha</label>
-              <input
-                type="password"
+              <PasswordInput
                 value={form.confirmPassword}
                 onChange={(e) => setField("confirmPassword", e.target.value)}
-                className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
-                placeholder="••••••••"
                 autoComplete="new-password"
+                placeholder="••••••••"
               />
             </div>
 
