@@ -49,7 +49,7 @@ export default function OrdersPage() {
 
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [mode, setMode] = useState("create"); 
+  const [mode, setMode] = useState("create");
   const [form, setForm] = useState(emptyForm);
 
 
@@ -166,15 +166,15 @@ export default function OrdersPage() {
 
   function validateCreate() {
     const errs = [];
-    if (!Number(form.userId) || Number(form.userId) <= 0) errs.push("UserId precisa ser maior que 0.");
+    if (!Number(form.userId) || Number(form.userId) <= 0) errs.push("UserId é obrigatório.");
 
-    if (!form.items?.length) errs.push("Pedido precisa ter pelo menos 1 item.");
+    if (!form.items?.length) errs.push("A lista de itens não pode estar vazia (mínimo 1 item).");
 
     form.items.forEach((it, idx) => {
       if (!Number(it.productId) || Number(it.productId) <= 0)
-        errs.push(`Item #${idx + 1}: selecione um produto.`);
+        errs.push(`Item #${idx + 1}: ProductId é obrigatório.`);
       if (!Number(it.quantity) || Number(it.quantity) <= 0)
-        errs.push(`Item #${idx + 1}: quantidade precisa ser maior que 0.`);
+        errs.push(`Item #${idx + 1}: Quantity deve ser maior que zero (mínimo 1).`);
     });
 
     return errs;
@@ -211,7 +211,7 @@ export default function OrdersPage() {
           orderStatus: 1,
         });
       } else {
-       
+
         await update({
           id: form.id,
           userId: Number(form.userId),

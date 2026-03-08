@@ -57,8 +57,9 @@ export default function CategoriesPage() {
 
   function validate() {
     const errs = [];
-    if (!form.name?.trim()) errs.push("Nome é obrigatório.");
-    if (form.name?.trim()?.length < 2) errs.push("Nome precisa ter pelo menos 2 caracteres.");
+    const name = form.name?.trim() || "";
+    if (!name) errs.push("Nome é obrigatório.");
+    if (name.length < 3) errs.push("Nome precisa ter pelo menos 3 caracteres.");
     return errs;
   }
 
