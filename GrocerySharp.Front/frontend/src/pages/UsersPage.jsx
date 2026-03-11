@@ -2,7 +2,14 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../components/Modal";
 import Field from "../components/Field";
+import PasswordInput from "../components/PasswordInput";
 import { useCrud } from "../hooks/useCrud";
+import {
+  formatPhoneBR,
+  isValidEmail,
+  isValidPhoneBR,
+  passwordHasRecommendedStrength,
+} from "../shared/validators";
 
 function normalize(str) {
   return (str || "").toString().toLowerCase().trim();
@@ -15,9 +22,6 @@ function rolesToText(roles) {
   if (typeof roles[0] === "string") return roles.join(", ");
   return roles.map((r) => r?.name ?? `Role #${r?.id}`).join(", ");
 }
-
-
-
 
 const ROLE_OPTIONS = [
   { id: 1, name: "Admin" },
@@ -39,7 +43,7 @@ export default function UsersPage() {
 
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [mode, setMode] = useState("create"); 
+  const [mode, setMode] = useState("create");
   const [form, setForm] = useState(emptyForm);
 
   const filtered = useMemo(() => {
@@ -86,13 +90,36 @@ export default function UsersPage() {
 
   function validate() {
     const errs = [];
-    if (!form.name?.trim()) errs.push("Nome é obrigatório.");
-    if (!form.email?.trim()) errs.push("Email é obrigatório.");
-    if (!form.phone?.trim()) errs.push("Telefone é obrigatório.");
+    const name = form.name?.trim() || "";
+    const email = form.email?.trim() || "";
+    const phone = form.phone?.trim() || "";
+    const pw = form.password || "";
 
-    if (mode === "create" && !form.password?.trim()) errs.push("Senha é obrigatória ao criar usuário.");
+    if (!name) errs.push("Nome é obrigatório.");
+    else if (name.length < 3) errs.push("Nome precisa ter no mínimo 3 caracteres.");
+    else if (name.length > 100) errs.push("Nome pode ter no máximo 100 caracteres.");
 
-    if (!Number(form.roleId) || Number(form.roleId) <= 0) errs.push("Selecione um Role.");
+    if (!email) errs.push("Email é obrigatório.");
+    else if (!isValidEmail(email)) errs.push("Email inválido (ex: email@dominio.com).");
+
+    if (!phone) errs.push("Telefone é obrigatório.");
+    else if (!isValidPhoneBR(phone)) errs.push("Telefone inválido. Use (XX) XXXXX-XXXX.");
+
+    if (mode === "create") {
+      if (!pw.trim()) errs.push("Senha é obrigatória.");
+      else if (pw.length < 8) errs.push("Senha precisa ter no mínimo 8 caracteres.");
+      else if (!passwordHasRecommendedStrength(pw))
+        errs.push("Senha fraca. Use pelo menos 1 maiúscula, 1 número e 1 símbolo.");
+    } else {
+      if (pw.trim()) {
+        if (pw.length < 8) errs.push("Senha precisa ter no mínimo 8 caracteres.");
+        else if (!passwordHasRecommendedStrength(pw))
+          errs.push("Senha fraca. Use pelo menos 1 maiúscula, 1 número e 1 símbolo.");
+      }
+    }
+
+    if (!Number(form.roleId) || Number(form.roleId) <= 0) errs.push("RoleId precisa ser maior que 0.");
+
     return errs;
   }
 
@@ -285,7 +312,7 @@ export default function UsersPage() {
               <Field label="Telefone">
                 <input
                   value={form.phone}
-                  onChange={(e) => setField("phone", e.target.value)}
+                  onChange={(e) => setField("phone", formatPhoneBR(e.target.value))}
                   className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
                 />
               </Field>
@@ -294,11 +321,11 @@ export default function UsersPage() {
                 label={mode === "create" ? "Senha" : "Nova senha (opcional)"}
                 hint={mode === "edit" ? "Deixe vazio para não alterar." : undefined}
               >
-                <input
-                  type="password"
+                <PasswordInput
                   value={form.password}
                   onChange={(e) => setField("password", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                  autoComplete={mode === "create" ? "new-password" : "off"}
+                  placeholder={mode === "edit" ? "Deixe vazio para não alterar" : "••••••••"}
                 />
               </Field>
 

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Modal from "../components/Modal";
 import Field from "../components/Field";
 import { useCrud } from "../hooks/useCrud";
+import { isProbablyImageUrl } from "../shared/validators";
 
 function normalize(str) {
   return (str || "").toString().toLowerCase().trim();
@@ -33,7 +34,7 @@ export default function ProductsPage() {
 
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [mode, setMode] = useState("create"); 
+  const [mode, setMode] = useState("create");
   const [form, setForm] = useState(emptyForm);
 
   const filtered = useMemo(() => {
@@ -76,17 +77,27 @@ export default function ProductsPage() {
     setForm((prev) => ({ ...prev, [name]: value }));
   }
 
+
+
+
   function validate() {
     const errs = [];
-    if (!form.name?.trim()) errs.push("Nome é obrigatório.");
-    if (!form.description?.trim()) errs.push("Descrição é obrigatória.");
+    const name = form.name?.trim() || "";
+    const desc = form.description?.trim() || "";
+
+    if (!name) errs.push("Nome é obrigatório.");
+    else if (name.length < 2) errs.push("Nome precisa ter pelo menos 2 caracteres.");
+    else if (name.length > 100) errs.push("Nome pode ter no máximo 100 caracteres.");
 
     const price = Number(form.price);
     if (Number.isNaN(price)) errs.push("Preço precisa ser um número.");
-    if (price < 0) errs.push("Preço não pode ser negativo.");
-    if (form.img !== undefined && form.img !== null && String(form.img).length > 0) {
-      if (!String(form.img).trim()) errs.push("Imagem não pode ser só espaços.");
-    }
+    else if (price <= 0) errs.push("Preço deve ser maior que zero (0.01 para cima).");
+
+    if (!desc) errs.push("Descrição é obrigatória.");
+    else if (desc.length < 10) errs.push("Descrição precisa ter pelo menos 10 caracteres.");
+
+    const img = (form.img ?? "").trim();
+    if (img && !isProbablyImageUrl(img)) errs.push("Img precisa ser uma URL de imagem válida.");
 
     return errs;
   }

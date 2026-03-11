@@ -149,7 +149,7 @@ export default function CrudPage({
       else await update(values);
       closeModal();
     } catch {
-
+      // erro já setado no hook
     }
   }
 
@@ -161,7 +161,7 @@ export default function CrudPage({
     try {
       await remove(id);
     } catch {
-k
+      // erro já setado no hook
     }
   }
 
