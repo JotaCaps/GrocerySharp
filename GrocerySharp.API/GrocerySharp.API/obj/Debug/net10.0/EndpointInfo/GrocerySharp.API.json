@@ -5,6 +5,37 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/auth/login": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInputModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInputModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginInputModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/categories": {
       "post": {
         "tags": [
@@ -541,6 +572,20 @@
         },
         "additionalProperties": false
       },
+      "LoginInputModel": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "OrderInputModel": {
         "type": "object",
         "properties": {
@@ -638,9 +683,25 @@
         },
         "additionalProperties": false
       }
+    },
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
     }
   },
+  "security": [
+    {
+      "bearer": [ ]
+    }
+  ],
   "tags": [
+    {
+      "name": "Auth"
+    },
     {
       "name": "Category"
     },

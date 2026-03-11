@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CBBaxpMSI6M=",
+  "dgSpecHash": "UJUupoQ/7nU=",
   "success": true,
   "projectFilePath": "C:\\Estudos\\GrocerySharp\\GrocerySharp.API\\GorcerySharp.Application\\GorcerySharp.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\joaos\\.nuget\\packages\\fluentvalidation\\12.1.1\\fluentvalidation.12.1.1.nupkg.sha512"
+  ],
   "logs": []
 }

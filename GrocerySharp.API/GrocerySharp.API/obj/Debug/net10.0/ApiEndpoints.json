@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "GrocerySharp.API.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/auth/login",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "GorcerySharp.Application.DTOs.LoginInputModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GrocerySharp.API.Controllers.CategoryController",
     "Method": "Post",
     "RelativePath": "api/categories",
