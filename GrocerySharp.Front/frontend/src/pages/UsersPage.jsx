@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Modal from "../components/Modal";
 import Field from "../components/Field";
+import PasswordInput from "../components/PasswordInput";
 import { useCrud } from "../hooks/useCrud";
 import {
   formatPhoneBR,
@@ -21,9 +22,6 @@ function rolesToText(roles) {
   if (typeof roles[0] === "string") return roles.join(", ");
   return roles.map((r) => r?.name ?? `Role #${r?.id}`).join(", ");
 }
-
-
-
 
 const ROLE_OPTIONS = [
   { id: 1, name: "Admin" },
@@ -323,11 +321,11 @@ export default function UsersPage() {
                 label={mode === "create" ? "Senha" : "Nova senha (opcional)"}
                 hint={mode === "edit" ? "Deixe vazio para não alterar." : undefined}
               >
-                <input
-                  type="password"
+                <PasswordInput
                   value={form.password}
                   onChange={(e) => setField("password", e.target.value)}
-                  className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                  autoComplete={mode === "create" ? "new-password" : "off"}
+                  placeholder={mode === "edit" ? "Deixe vazio para não alterar" : "••••••••"}
                 />
               </Field>
 
