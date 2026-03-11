@@ -1,16 +1,12 @@
 ﻿using GorcerySharp.Application.DTOs;
 using GrocerySharp.Domain.Abstractions.Repositories;
-using GrocerySharp.Domain.Entities;
-using GrocerySharp.Infra.Persistence;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace GrocerySharp.API.Controllers
 {
     [ApiController]
     [Route("api/products")]
-    [Authorize(Roles = "Admin")]
     public class ProductController : ControllerBase
     {
 
@@ -58,6 +54,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Update(ProductInputModel model, int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
@@ -70,7 +67,8 @@ namespace GrocerySharp.API.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id}")] 
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Delete(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);

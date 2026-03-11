@@ -9,7 +9,6 @@ namespace GrocerySharp.API.Controllers
 {
     [ApiController]
     [Route("api/orders")]
-    [Authorize(Roles = "Admin")]
     public class OrderController : ControllerBase
     {
         private readonly IOrderRepository _orderRepository;
@@ -22,6 +21,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Post(OrderInputModel model)
         {
             decimal totalOrderValue = 0;
@@ -52,6 +52,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> GetAll()
         {
             var orders = await _orderRepository.GetAllAsync();
@@ -62,6 +63,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> GetById(int id)
         {
             var order = await _orderRepository.GetByIdAsync(id);
@@ -73,7 +75,8 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpPut("{id}")]
-        
+        [Authorize(Roles = "Admin,Employee")]
+
         public async Task<IActionResult> Update(OrderInputModel model, int id)
         {
             var order = await _orderRepository.GetByIdAsync(id);
@@ -113,6 +116,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Delete(int id)
         {
             var order = await _orderRepository.GetByIdAsync(id);

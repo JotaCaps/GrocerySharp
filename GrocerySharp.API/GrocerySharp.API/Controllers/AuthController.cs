@@ -1,5 +1,4 @@
 ﻿using GorcerySharp.Application.DTOs;
-using GrocerySharp.Domain.Abstractions.Repositories;
 using GrocerySharp.Infra.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

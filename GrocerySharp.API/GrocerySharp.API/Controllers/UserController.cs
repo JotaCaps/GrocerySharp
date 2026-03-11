@@ -42,6 +42,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> GetAll()
         {
             var users = await _userRepository.GetAllAsync();
@@ -51,6 +52,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> GetById(int id)
         {
             var user = await _userRepository.GetByIdAsync(id);
@@ -61,6 +63,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Update(UserInputModel model, int id)
         {
             var user = await _userRepository.GetByIdAsync(id);
@@ -75,6 +78,7 @@ namespace GrocerySharp.API.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin,Employee")]
         public async Task<IActionResult> Delete(int id)
         {
             var user = await _userRepository.GetByIdAsync(id);
