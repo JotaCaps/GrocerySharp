@@ -1,4 +1,4 @@
-import { getToken } from "../services/authToken";
+    import { getToken } from "../services/authToken";
 
 function parseJwt(token) {
   try {
